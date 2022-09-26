@@ -168,7 +168,7 @@ namespace SaferPilotBrothersForm
             
             if (numSize.Value <= 1)
             {
-                MessageBox.Show("Нельзя вводить число меньше или равное 0");
+                MessageBox.Show("Нельзя вводить число меньше или равное 1");
                 numSize.Value = 2;
             }
             if (numSize.Value % 2 != 0)
