@@ -41,6 +41,7 @@ namespace SaferPilotBrothersForm
         public FormGame()
         {
             InitializeComponent();
+            numSize.Controls[0].Visible = false;
 
         }
 
@@ -164,7 +165,7 @@ namespace SaferPilotBrothersForm
 
         private void numSize_ValueChanged(object sender, EventArgs e)
         {
-
+            
             if (numSize.Value <= 1)
             {
                 MessageBox.Show("Нельзя вводить число меньше или равное 0");
