@@ -1,0 +1,5 @@
+C:\Users\tolik\source\repos\SaferPilotBrothersForm\bin\Release\net5.0-windows\publish\SaferPilotBrothersForm.exe
+C:\Users\tolik\source\repos\SaferPilotBrothersForm\bin\Release\net5.0-windows\publish\SaferPilotBrothersForm.dll
+C:\Users\tolik\source\repos\SaferPilotBrothersForm\bin\Release\net5.0-windows\publish\SaferPilotBrothersForm.deps.json
+C:\Users\tolik\source\repos\SaferPilotBrothersForm\bin\Release\net5.0-windows\publish\SaferPilotBrothersForm.runtimeconfig.json
+C:\Users\tolik\source\repos\SaferPilotBrothersForm\bin\Release\net5.0-windows\publish\SaferPilotBrothersForm.pdb

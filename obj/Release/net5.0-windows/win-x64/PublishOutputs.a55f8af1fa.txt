@@ -1,0 +1,2 @@
+C:\Users\tolik\source\repos\SaferPilotBrothersForm\bin\Release\net5.0-windows\publish\win-x64\SaferPilotBrothersForm.pdb
+C:\Users\tolik\source\repos\SaferPilotBrothersForm\bin\Release\net5.0-windows\publish\win-x64\SaferPilotBrothersForm.exe
