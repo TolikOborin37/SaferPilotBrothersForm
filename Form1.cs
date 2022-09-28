@@ -12,7 +12,6 @@ using System.Windows.Forms;
 
 namespace SaferPilotBrothersForm
 {
-
     public partial class FormGame : Form
     {
         //сообщение, которое выводится, когда игра пройдена
@@ -48,6 +47,9 @@ namespace SaferPilotBrothersForm
         //метод для игры
         private void Game(int size)
         {
+            playing_field.Controls.Clear();
+            playing_field.ColumnStyles.Clear();
+            playing_field.RowStyles.Clear();
 
             //расположение таблицы, относительно формы (левый верхний угол)
             playing_field.Location = new Point(0, 0);
@@ -55,9 +57,25 @@ namespace SaferPilotBrothersForm
             playing_field.CellBorderStyle = TableLayoutPanelCellBorderStyle.Inset;
             playing_field.Dock = DockStyle.Fill;
 
-            //процентное соотношение кнопок(чтобы все кнопки были равные по размеру между собой)
-            float percent = 100 / size;
+            
+            playing_field.RowCount = size;
+            playing_field.ColumnCount = size;
 
+            //определяем размер одной колонки и строки в процентах
+            float width = 100 / playing_field.ColumnCount;
+            float height = 100 / playing_field.RowCount;
+
+            //добавляем колонки и строки
+            for (int col = 0; col < playing_field.ColumnCount; col++)
+            {
+                playing_field.ColumnStyles.Add(new ColumnStyle(SizeType.Percent,width));
+
+                for (int row = 0; row < playing_field.RowCount; row++)
+                {
+                    if(col==0)
+                    playing_field.RowStyles.Add(new RowStyle(SizeType.Percent,height));
+                }
+            }
             //цикл добавления кнопок в таблицу
             for (int i = 0; i < size; i++)
             {
@@ -68,13 +86,10 @@ namespace SaferPilotBrothersForm
                     button.BackColor = Color.Turquoise;
                     button.Click += btn_click;
                     playing_field.Controls.Add(button, i, j);
-                    playing_field.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, percent));
-                    playing_field.RowStyles.Add(new RowStyle(SizeType.Percent, percent));
                     button.BackgroundImage = test[random.Next(0, 2)];
                     button.BackgroundImageLayout = ImageLayout.Stretch;
                 }
             }
-
             Controls.Add(playing_field);
         }
 
@@ -163,9 +178,10 @@ namespace SaferPilotBrothersForm
 
         }
 
+        //проверка numericUpDown на значение
         private void numSize_ValueChanged(object sender, EventArgs e)
         {
-            
+
             if (numSize.Value <= 1)
             {
                 MessageBox.Show("Нельзя вводить число меньше или равное 1");
@@ -176,7 +192,7 @@ namespace SaferPilotBrothersForm
                 numSize.Value++;
             }
         }
-
+        //кнопка, которая скрывает все первоначальные элементы, и вызывает метод Game для отрисовки игрового поля
         private void butStartGame_Click(object sender, EventArgs e)
         {
             GameName.Visible = false;
